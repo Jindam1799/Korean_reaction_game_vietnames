@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K-Reaction Master</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="rules-modal">
+        <div class="lang-switch">
+          <button onclick="switchLang('ko')" id="btn-ko">KO</button>
+          <button onclick="switchLang('vn')" id="btn-vn" class="active">
+            VN
+          </button>
+        </div>
+
+        <div class="modal-content">
+          <div class="story-header">🇻🇳 ❤️ 🇰🇷</div>
+          <h2 id="modal-title">Xin chào các bạn!</h2>
+          <p id="modal-intro" class="intro-p">
+            Chào mừng bạn đến với thử thách phản ứng!
+          </p>
+
+          <div id="modal-highlight" class="highlight-box"></div>
+
+          <ul id="modal-rules" class="rule-list"></ul>
+
+          <button id="start-btn-text" class="main-btn" onclick="startGame()">
+            Bắt đầu 🤝
+          </button>
+        </div>
+      </div>
+
+      <header>
+        <div class="status-group">
+          <div class="level-badge">Lv.1 🌱</div>
+          <div id="lives-display">❤️❤️❤️</div>
+        </div>
+        <div class="score-display">SCORE: <span id="score">0</span></div>
+      </header>
+
+      <div id="timer-wrapper"><div id="timer-bar"></div></div>
+
+      <div class="display-area">
+        <div id="situation-display">대화 대기 중...</div>
+        <div id="translation-display"></div>
+      </div>
+
+      <div id="button-grid" class="btn-grid"></div>
+      <div id="feedback"></div>
+    </div>
+
+    <script type="module" src="game.js"></script>
+  </body>
+</html>
