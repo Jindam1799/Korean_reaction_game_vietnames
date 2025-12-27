@@ -33,7 +33,6 @@ body {
   flex-direction: column;
 }
 
-/* 언어 전환 */
 .lang-switch {
   position: absolute;
   top: 25px;
@@ -58,7 +57,6 @@ body {
   border-color: var(--primary);
 }
 
-/* 모달 */
 #rules-modal {
   position: absolute;
   top: 0;
@@ -102,7 +100,6 @@ h2 {
   line-height: 1.8;
 }
 
-/* 게임 플레이 UI */
 header {
   display: flex;
   justify-content: space-between;
@@ -156,15 +153,11 @@ header {
   line-height: 1.6;
 }
 
-/* 버튼 그리드 */
 .btn-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  transition: all 0.3s;
 }
-
-/* 결과 화면에서 버튼을 가운데로 정렬하기 위한 클래스 */
 .result-mode {
   display: flex !important;
   justify-content: center !important;
@@ -199,8 +192,6 @@ header {
   cursor: pointer;
   font-family: 'Lexend', sans-serif;
 }
-
-/* 결과 버튼 너비 제한 (가운데 왔을 때 너무 길지 않게) */
 .restart-btn {
   max-width: 280px;
 }
