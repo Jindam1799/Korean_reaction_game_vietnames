@@ -7,7 +7,7 @@ const uiText = {
     highlight:
       '당신은 한국어를 열심히 배웠습니다.<br>아직 서툴지만 친구의 말에 <strong>공감</strong>해주는 따뜻한 마음을 보여주세요!',
     rules:
-      '<li>❤️ <strong>기회 3번:</strong> 틀리거나 늦으면 감소합니다.</li><li>⚡ <strong>속도 보너스:</strong> 빨리 누를수록 고득점!</li><li>💬 <strong>최종 목표:</strong> 베스트 프렌드가 되기</li>',
+      '<li>❤️ <strong>기회 3번:</strong> 틀리거나 늦으면 감소합니다.</li><li>⚡ <strong>속도 보너스:</strong> 빨리 누를수록 고득점!</li><li>💬 <strong>최종 목표:</strong> 10개 문제 완료하기</li>',
     startBtn: '친구 만나러 가기! 🤝',
     waiting: '친구의 말을 기다리는 중...',
     timeout: '대답이 너무 늦었어요! ⏰',
@@ -21,7 +21,7 @@ const uiText = {
     highlight:
       'Bạn đã có một người bạn Hàn Quốc!<br>Hãy <strong>đồng cảm</strong> với những câu chuyện của bạn ấy nhé.<br>Mặc dù tiếng Hàn còn chút bối rối, nhưng trái tim ấm áp là đủ!',
     rules:
-      '<li>❤️ <strong>3 cơ hội:</strong> Trả lời sai hoặc muộn sẽ mất tim.</li><li>⚡ <strong>Tốc độ:</strong> Trả lời càng nhanh, điểm càng cao!</li><li>💬 <strong>Mục tiêu:</strong> Trở thành bạn thân (Best Friend).</li>',
+      '<li>❤️ <strong>3 cơ hội:</strong> Trả lời sai hoặc muộn sẽ mất tim.</li><li>⚡ <strong>Tốc độ:</strong> Trả lời càng nhanh, điểm càng cao!</li><li>💬 <strong>Mục tiêu:</strong> Hoàn thành 10 câu hỏi.</li>',
     startBtn: 'Gặp gỡ bạn bè! 🤝',
     waiting: 'Đang chờ bạn ấy nói...',
     timeout: 'Hết thời gian mất rồi! ⏰',
@@ -60,7 +60,10 @@ window.startGame = function () {
   score = 0;
   lives = 3;
   currentIdx = 0;
-  shuffledStages = [...level1Data.stages].sort(() => Math.random() - 0.5);
+  // [중요] 20개 상황 중 랜덤으로 10개만 추출
+  shuffledStages = [...level1Data.stages]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 10);
   updateUI();
   nextQuestion();
 };
@@ -81,7 +84,7 @@ function nextQuestion() {
 
 function createButtons(displayCorrect, allCorrectArray) {
   const grid = document.getElementById('button-grid');
-  grid.classList.remove('result-mode'); // 게임 중에는 그리드 모드 유지
+  grid.classList.remove('result-mode');
   grid.innerHTML = '';
   let distractors = [...negativePool]
     .sort(() => Math.random() - 0.5)
@@ -150,20 +153,18 @@ function showFinalResult(isSuccess) {
     msg = '';
   if (currentLang === 'ko') {
     title =
-      isSuccess && score >= shuffledStages.length * 70
-        ? '👑 베스트 프렌드!'
-        : '🧐 서먹서먹한 사이';
+      isSuccess && score >= 800 ? '👑 베스트 프렌드!' : '🧐 서먹서먹한 사이';
     msg =
-      isSuccess && score >= shuffledStages.length * 70
+      isSuccess && score >= 800
         ? '축하합니다! 한국 친구와 단짝이 되었어요!'
         : '아직은 조금 서먹하네요. 다시 해볼까요?';
   } else {
     title =
-      isSuccess && score >= shuffledStages.length * 70
+      isSuccess && score >= 800
         ? '👑 Bạn thân (Best Friend)'
         : '🧐 Quan hệ còn xa cách';
     msg =
-      isSuccess && score >= shuffledStages.length * 70
+      isSuccess && score >= 800
         ? 'Chúc mừng! Bạn đã trở thành tri kỷ của người bạn Hàn Quốc!'
         : 'Mọi chuyện vẫn còn chút ngại ngùng. Hãy thử lại nhé!';
   }
@@ -171,8 +172,6 @@ function showFinalResult(isSuccess) {
     'situation-display'
   ).innerHTML = `<div style="line-height:1.6;"><strong>${title}</strong><br><br>${msg}</div>`;
   document.getElementById('translation-display').innerText = '';
-
-  // 버튼 그리드를 플렉스 모드로 변경하여 가운데 정렬
   const grid = document.getElementById('button-grid');
   grid.classList.add('result-mode');
   grid.innerHTML = `<button class="main-btn restart-btn" onclick="location.reload()">${uiText[currentLang].restart}</button>`;
