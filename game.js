@@ -43,22 +43,16 @@ window.switchLang = function (lang) {
   currentLang = lang;
   document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
   document.getElementById('btn-vn').classList.toggle('active', lang === 'vn');
-
   document.getElementById('modal-title').innerText = uiText[lang].title;
   document.getElementById('modal-intro').innerText = uiText[lang].intro;
   document.getElementById('modal-highlight').innerHTML = uiText[lang].highlight;
   document.getElementById('modal-rules').innerHTML = uiText[lang].rules;
   document.getElementById('start-btn-text').innerText = uiText[lang].startBtn;
-  if (
-    currentIdx === 0 &&
-    document.getElementById('feedback').innerText === ''
-  ) {
+  if (currentIdx === 0)
     document.getElementById('situation-display').innerText =
       uiText[lang].waiting;
-  }
 };
 
-// 초기 실행 시 언어 설정 적용
 window.onload = () => window.switchLang('vn');
 
 window.startGame = function () {
@@ -87,6 +81,7 @@ function nextQuestion() {
 
 function createButtons(displayCorrect, allCorrectArray) {
   const grid = document.getElementById('button-grid');
+  grid.classList.remove('result-mode'); // 게임 중에는 그리드 모드 유지
   grid.innerHTML = '';
   let distractors = [...negativePool]
     .sort(() => Math.random() - 0.5)
@@ -176,7 +171,9 @@ function showFinalResult(isSuccess) {
     'situation-display'
   ).innerHTML = `<div style="line-height:1.6;"><strong>${title}</strong><br><br>${msg}</div>`;
   document.getElementById('translation-display').innerText = '';
-  document.getElementById(
-    'button-grid'
-  ).innerHTML = `<button class="main-btn" onclick="location.reload()">${uiText[currentLang].restart}</button>`;
+
+  // 버튼 그리드를 플렉스 모드로 변경하여 가운데 정렬
+  const grid = document.getElementById('button-grid');
+  grid.classList.add('result-mode');
+  grid.innerHTML = `<button class="main-btn restart-btn" onclick="location.reload()">${uiText[currentLang].restart}</button>`;
 }
