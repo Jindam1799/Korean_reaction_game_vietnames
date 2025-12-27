@@ -7,6 +7,12 @@
   --white: #ffffff;
 }
 
+/* 레벨 2 파란색 테마 */
+.level-2-theme {
+  --primary: #3498db;
+  --secondary: #f2f7fb;
+}
+
 body {
   font-family: 'Lexend', sans-serif;
   background-color: #f0f2f1;
@@ -33,6 +39,7 @@ body {
   flex-direction: column;
 }
 
+/* 언어 전환 버튼 */
 .lang-switch {
   position: absolute;
   top: 25px;
@@ -57,6 +64,7 @@ body {
   border-color: var(--primary);
 }
 
+/* 모달(안내창) */
 #rules-modal {
   position: absolute;
   top: 0;
@@ -76,17 +84,27 @@ body {
   height: 100%;
   justify-content: space-between;
 }
-
+.story-header {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
 h2 {
   color: var(--primary);
-  margin-bottom: 10px;
-  font-size: 1.6rem;
+  margin: 10px 0;
+  font-size: 1.5rem;
+}
+.intro-p {
+  font-size: 0.95rem;
+  color: var(--gray);
+  margin: 0;
+  line-height: 1.5;
 }
 .highlight-box {
   background: var(--secondary);
-  padding: 20px;
+  padding: 18px;
   border-radius: 20px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: #2d3436;
   line-height: 1.7;
   text-align: left;
   border-left: 6px solid var(--primary);
@@ -95,16 +113,22 @@ h2 {
   text-align: left;
   list-style: none;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--gray);
   line-height: 1.8;
 }
 
+/* 헤더 및 타이머 */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+}
+.status-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .level-badge {
   background: var(--primary);
@@ -115,8 +139,9 @@ header {
   font-size: 0.8rem;
 }
 #lives-display {
-  font-size: 1.2rem;
-  letter-spacing: 3px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--danger);
 }
 
 #timer-wrapper {
@@ -131,8 +156,10 @@ header {
   height: 100%;
   background: var(--primary);
   border-radius: 10px;
+  transition: width 0.1s linear;
 }
 
+/* 대화 영역 */
 .display-area {
   min-height: 160px;
   display: flex;
@@ -141,18 +168,20 @@ header {
   margin-bottom: 20px;
 }
 #situation-display {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5;
   margin-bottom: 10px;
 }
 #translation-display {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--gray);
   font-style: italic;
   line-height: 1.6;
+  font-weight: 300;
 }
 
+/* 버튼 그리드 */
 .btn-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -160,18 +189,21 @@ header {
 }
 .result-mode {
   display: flex !important;
+  flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
+  gap: 10px;
 }
 
 .reaction-btn {
-  padding: 20px;
+  padding: 18px;
   font-size: 1.1rem;
   font-weight: 600;
   border: 2.5px solid #f1f2f6;
   border-radius: 20px;
   background: var(--white);
   cursor: pointer;
+  transition: 0.2s;
   font-family: 'Lexend', sans-serif;
 }
 .reaction-btn:hover {
@@ -182,24 +214,29 @@ header {
 
 .main-btn {
   width: 100%;
-  padding: 20px;
+  padding: 18px;
   background: var(--primary);
   border: none;
   border-radius: 20px;
   color: var(--white);
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
   font-family: 'Lexend', sans-serif;
 }
 .restart-btn {
   max-width: 280px;
+  background-color: var(--gray);
+}
+.next-btn {
+  max-width: 280px;
+  background-color: #3498db;
 }
 
 #feedback {
   height: 30px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-top: 15px;
 }
 .hidden {
