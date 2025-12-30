@@ -18,10 +18,7 @@
       content="https://jindam1799.github.io/Korean_reaction_game_vietnames/"
     />
     <meta property="og:title" content="K-Reaction Master" />
-    <meta
-      property="og:description"
-      content="웹사이트에 대한 간단한 설명을 입력하세요."
-    />
+    <meta property="og:description" content="자연스러운 한국어를 배우자" />
 
     <meta
       property="og:image"
@@ -36,46 +33,119 @@
   </head>
   <body>
     <div id="game-container">
-      <div id="rules-modal">
-        <div class="lang-switch">
-          <button onclick="switchLang('ko')" id="btn-ko">KO</button>
-          <button onclick="switchLang('vn')" id="btn-vn" class="active">
+      <div class="global-watermark"></div>
+      <div class="credits-area">
+        제작: 진담한국어<br />감수: 원나리<br />개발: Dukimi
+      </div>
+      <div id="feedback-msg"></div>
+
+      <div id="rules-modal" class="modal-screen">
+        <h1 id="game-title">K-REACTION MASTER</h1>
+        <div class="lang-switch-box">
+          <button onclick="switchLang('ko')" id="btn-ko" class="lang-btn">
+            KO
+          </button>
+          <button
+            onclick="switchLang('vn')"
+            id="btn-vn"
+            class="lang-btn active"
+          >
             VN
           </button>
         </div>
-        <div class="modal-content">
-          <div class="story-header">🇻🇳 ❤️ 🇰🇷</div>
-          <h2 id="modal-title"></h2>
-          <p id="modal-intro" class="intro-p"></p>
-          <div id="modal-highlight" class="highlight-box"></div>
-          <ul id="modal-rules" class="rule-list"></ul>
+        <div class="info-box">
+          <div style="font-size: 3rem">🇰🇷❤️🇻🇳</div>
+          <div id="story-text" style="line-height: 1.7; font-weight: 500"></div>
           <button
             id="start-btn-text"
             class="main-btn"
+            style="width: 100%; padding: 18px"
             onclick="startGame()"
           ></button>
         </div>
       </div>
 
-      <header>
-        <div class="status-group">
-          <div class="level-badge">Lv.1</div>
-          <div id="lives-display">❤️❤️❤️</div>
+      <div id="game-over-modal" class="modal-screen hidden">
+        <h1 id="game-title">GAME OVER</h1>
+        <div class="info-box">
+          <div style="font-size: 3rem">😭💔</div>
+          <h2
+            id="game-over-title"
+            style="color: var(--primary); margin: 0"
+          ></h2>
+          <p id="game-over-desc" style="font-weight: bold; color: #2d3436"></p>
+          <button
+            id="restart-btn-text"
+            class="main-btn"
+            style="width: 100%; padding: 18px"
+            onclick="location.reload()"
+          ></button>
         </div>
-        <div class="score-display">SCORE: <span id="score">0</span></div>
-      </header>
-
-      <div id="timer-wrapper"><div id="timer-bar"></div></div>
-
-      <div class="display-area">
-        <div id="situation-display"></div>
-        <div id="translation-display"></div>
       </div>
 
-      <div id="button-grid" class="btn-grid"></div>
-      <div id="feedback"></div>
-    </div>
+      <header id="quiz-header">
+        <div id="timer-section" class="timer-section">
+          ⏱ <span id="time-left">60</span>S
+        </div>
+      </header>
 
+      <div id="lives-display"></div>
+
+      <div
+        id="game-play-area"
+        style="
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 0 30px;
+        "
+      >
+        <div class="speech-bubble a">
+          <div id="text-a" style="font-weight: 800; font-size: 1.2rem"></div>
+          <div
+            id="tran-a"
+            style="font-size: 0.9rem; color: #888; margin-top: 5px"
+          ></div>
+        </div>
+        <div class="speech-bubble b">
+          <div
+            id="text-b"
+            style="font-weight: 800; font-size: 1.2rem; color: var(--primary)"
+          ></div>
+          <div
+            id="tran-b"
+            style="font-size: 0.9rem; color: #888; margin-top: 5px"
+          ></div>
+        </div>
+      </div>
+
+      <div
+        id="result-display"
+        class="hidden"
+        style="
+          padding: 30px;
+          overflow-y: auto;
+          height: 100%;
+          position: relative;
+          z-index: 100;
+        "
+      ></div>
+      <div
+        id="button-grid"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+          padding: 30px;
+          background: #fffafa;
+          border-bottom-left-radius: 45px;
+          border-bottom-right-radius: 45px;
+          position: relative;
+          z-index: 10;
+        "
+      ></div>
+    </div>
     <script type="module" src="game.js"></script>
   </body>
 </html>
