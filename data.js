@@ -1,188 +1,109 @@
-// data.js
-export const level1Data = {
-  title: '새싹 리액셔너 (Người mới bắt đầu) 🌱',
-  stages: [
-    {
-      s: '나 이번에 장학금 받았어!',
-      v: 'Lần này mình nhận được học bổng đấy!',
-      a: ['대박!', '우와!', '와!', '대단하다!'],
-    },
-    {
-      s: '우와! 방금 본 노을 진짜 예쁘다!',
-      v: 'Oa! Hoàng hôn vừa nãy đẹp thật đấy!',
-      a: ['와!', '우와!', '세상에..', '그러게!'],
-    },
-    {
-      s: '오늘 나 옷 좀 잘 입었지? 어때?',
-      v: 'Hôm nay mình mặc đồ đẹp chứ? Thấy sao?',
-      a: ['올~', '오~', '역시~', '멋진데?'],
-    },
-    {
-      s: '내가 해낸다고 했지? 결국 성공했어!',
-      v: 'Mình đã bảo là sẽ làm được mà? Cuối cùng cũng thành công rồi!',
-      a: ['역시!', '크으..', '대단해!', '멋지다!'],
-    },
-    {
-      s: '와! 이 가게 떡볶이 비주얼 미쳤다!',
-      v: 'Oa! Món bánh gạo cay của quán này nhìn đỉnh thật đấy!',
-      a: ['와!', '우와!', '대박!', '진짜!'],
-    },
-    {
-      s: '짜잔! 이거 너 주려고 준비한 선물이야.',
-      v: 'Tèn ten! Đây là quà mình chuẩn bị cho bạn đấy.',
-      a: ['고마워!', '감동이야!', '우와!', '와!'],
-    },
-    {
-      s: '나 한국어 시험에서 100점 맞았어!',
-      v: 'Mình được 100 điểm kỳ thi tiếng Hàn rồi!',
-      a: ['축하해!', '나이스!', '대박!', '와!'],
-    },
-    {
-      s: '오늘 저녁은 내가 쏠게! 가자!',
-      v: 'Tối nay mình bao nhé! Đi thôi!',
-      a: ['헐! 대박!', '아싸~', '최고야!', '와!'],
-    },
-    {
-      s: '오늘 날씨 정말 좋다. 산책하기 딱이야!',
-      v: 'Hôm nay thời tiết đẹp thật đấy. Rất hợp để đi dạo!',
-      a: ['진짜!', '그러게~', '대박!', '맞아!'],
-    },
-    {
-      s: '새로 바꾼 내 헤어스타일 어때?',
-      v: 'Kiểu tóc mới của mình thấy sao?',
-      a: ['올~', '오~', '오호~', '멋져!'],
-    },
-    // --- 새로운 상황 추가 ---
-    {
-      s: '이 스마트폰 새로 샀어! 어때, 예쁘지?',
-      v: 'Mình mới mua điện thoại này đấy! Thấy sao, đẹp chứ?',
-      a: ['와~!', '대박!', '예쁘다!', '올~'],
-    },
-    {
-      s: '오랜만에 운동했더니 몸이 너무 가뿐해!',
-      v: 'Lâu lắm mới tập thể dục nên người thấy nhẹ nhõm hẳn!',
-      a: ['오~', '그래?', '좋네~', '와!'],
-    },
-    {
-      s: '방 청소하다가 옛날 옷에서 만 원 찾았어!',
-      v: 'Đang dọn phòng thì tìm thấy 10 ngàn won trong túi áo cũ!',
-      a: ['짱이다!', '헐!', '대박!', '와!'],
-    },
-    {
-      s: '이 쌀국수 정말 맛있다!',
-      v: 'Món phở này thật sự rất ngon!',
-      a: ['대박!', '존맛!', '맞아!'],
-    },
-    {
-      s: '이 카페 커피 진짜 맛있다. 네 스타일이지?',
-      v: 'Cà phê quán này ngon thật đấy. Đúng gu bạn đúng không?',
-      a: ['와!', '그러게~', '응, 대박!', '맞아!'],
-    },
-    {
-      s: '나 어제 꿈에서 복권 당첨되는 꿈 꿨어!',
-      v: 'Hôm qua mình nằm mơ thấy trúng số đấy!',
-      a: ['헐!', '대박!', '부럽다!', '와!'],
-    },
-    {
-      s: '이 그림 내가 직접 그린 거야! 어때?',
-      v: 'Bức tranh này là tự tay mình vẽ đấy! Thấy sao?',
-      a: ['우와!', '대단해!', '금손이네!', '와!'],
-    },
-    {
-      s: '집 근처에 진짜 맛있는 빵집을 알아냈어!',
-      v: 'Mình vừa tìm ra một tiệm bánh cực ngon ở gần nhà!',
-      a: ['대박!', '어디야?'],
-    },
-    {
-      s: '나 드디어 가고 싶었던 회사 면접 보러 가!',
-      v: 'Cuối cùng mình cũng được đi phỏng vấn ở công ty mình muốn rồi!',
-      a: ['축하해!', '와!', '대박!', '잘됐다!'],
-    },
-    {
-      s: '이 노래 제목 뭐야? 진짜 내 스타일이다!',
-      v: 'Bài hát này tên là gì thế? Đúng gu mình luôn!',
-      a: ['오~', '그러게!', '와!', '좋다!'],
-    },
-  ],
-};
-export const level2Data = {
-  title: '공감의 달인 😎',
-  stages: [
-    {
-      s: '아.. 길 가다가 지갑을 잃어버렸어.',
-      v: 'Ôi.. mình vừa đi đường vừa làm mất ví rồi.',
-      a: ['헐..', '어떡해..', '안돼!', '아이구..'],
-    },
-    {
-      s: '어제 잠을 한숨도 못 잤더니 너무 피곤해.',
-      v: 'Hôm qua không ngủ được chút nào nên giờ mình mệt quá.',
-      a: ['에구..', '피곤하겠다..', '아이구..', '어쩌나..'],
-    },
-    {
-      s: '열심히 준비했는데 시험을 못 봤어..',
-      v: 'Mình đã chuẩn bị rất kỹ nhưng lại làm bài thi không tốt..',
-      a: ['토닥토닥..', '속상하겠다..', '에휴..', '힘내!'],
-    },
-    {
-      s: '비가 오는데 우산을 안 가져왔어.',
-      v: 'Trời mưa mà mình lại không mang theo ô.',
-      a: ['헐..', '아차!', '어떡해..', '저런..'],
-    },
-    {
-      s: '아끼던 컵을 떨어뜨려서 깨졌어.',
-      v: 'Mình làm rơi cái cốc yêu thích nên nó vỡ mất rồi.',
-      a: ['아이고..', '속상해라..', '저런..', '헐..'],
-    },
-    {
-      s: '감기에 걸렸는지 몸이 계속 안 좋아.',
-      v: 'Hình như mình bị cảm rồi, trong người cứ thấy khó chịu mãi.',
-      a: ['아프지 마..', '어떡해..', '아이구..', '빨리 나아..'],
-    },
-    {
-      s: '버스를 눈앞에서 놓쳐버렸어.. 하아..',
-      v: 'Mình vừa lỡ chuyến xe buýt ngay trước mắt luôn.. haiz..',
-      a: ['에휴..', '아까워!', '저런..', '어쩌나..'],
-    },
-    {
-      s: '스마트폰 액정이 깨져버렸어..',
-      v: 'Màn hình điện thoại của mình bị vỡ rồi..',
-      a: ['헐!!', '안돼!!', '어떡해..', '속상하겠다..'],
-    },
-    {
-      s: '오늘 회사에서 실수를 좀 했어..',
-      v: 'Hôm nay mình đã mắc một chút sai lầm ở công ty..',
-      a: ['힘내..', '괜찮아!', '속상하겠다..', '아이구..'],
-    },
-    {
-      s: '어제 산 물건이 벌써 고장 났어..',
-      v: 'Món đồ mới mua hôm qua mà đã hỏng mất rồi..',
-      a: ['에이~', '헐..', '어라?', '말도 안 돼!'],
-    },
-  ],
+export const level1Data = [
+  {
+    a: '친구: 우리 조카 사진이에요. 귀엽죠?',
+    av: 'Bạn: Đây là ảnh cháu tôi. Đáng yêu đúng không?',
+    b: '__, 아기가 너무 귀여워요! 인형인 줄 알았네.',
+    bv: '__, Em bé đáng yêu quá đi! Tớ cứ tưởng là búp bê cơ đấy.',
+    ans: ['아이구!/아이고!'],
+  },
+  {
+    a: '친구: 오늘 날씨 진짜 좋다. 그치?',
+    av: 'Bạn: Hôm nay thời tiết đẹp thật đấy. Đúng không?',
+    b: '__, 나들이 가기 딱이다!',
+    bv: '__, rất hợp để đi chơi!',
+    ans: ['와', '진짜', '정말', '그러게'],
+  },
+  {
+    a: '친구: 이번에 산 옷인데 나랑 잘 어울려?',
+    av: 'Bạn: Đây là áo mình mới mua, hợp với mình chứ?',
+    b: '__, 모델인 줄 알았어!',
+    bv: '__, mình cứ tưởng là người mẫu đấy!',
+    ans: ['올', '오', '우와', '역시'],
+  },
+  {
+    a: '친구: 시험 드디어 끝났어! 해방이다!',
+    av: 'Bạn: Cuối cùng cũng thi xong rồi! Giải thoát rồi!',
+    b: '__, 우리 맛있는 거 먹으러 가자!',
+    bv: '__, chúng mình đi ăn cái gì ngon đi!',
+    ans: ['아싸', '나이스', '와', '대박'],
+  },
+  {
+    a: '친구: 나 어제 유튜브 시작했는데 구독자 100명 됐어!',
+    av: 'Bạn: Hôm qua mình mới bắt đầu làm Youtube mà được 100 sub rồi!',
+    b: '__, 너 금방 유명해지겠다!',
+    bv: '__, bạn sắp nổi tiếng rồi đấy!',
+    ans: ['대단해', '최고', '우와', '진짜'],
+  },
+  {
+    a: '친구: 길 가다가 5천원을 주웠어! 기분 좋아.',
+    av: 'Bạn: Đang đi trên đường thì nhặt được 5 nghìn won! Vui quá.',
+    b: '__, 오늘 운수 대통인데?',
+    bv: '__, hôm nay may mắn thế!',
+    ans: ['대박', '오', '우와', '럭키'],
+  },
+  {
+    a: '친구: 내가 직접 만든 쿠키야. 한번 먹어봐!',
+    av: 'Bạn: Đây là bánh quy mình tự làm. Ăn thử đi!',
+    b: '__, 파는 것보다 훨씬 맛있다!',
+    bv: '__, ngon hơn cả ngoài tiệm luôn!',
+    ans: ['와', '세상에', '정말', '대박'],
+  },
+  {
+    a: '친구: 내일 드디어 한국으로 여행 가!',
+    av: 'Bạn: Ngày mai cuối cùng mình cũng được đi du lịch Hàn Quốc rồi!',
+    b: '__, 너무 설레겠다! 조심히 다녀와.',
+    bv: '__, chắc là hồi hộp lắm! Đi cẩn thận nhé.',
+    ans: ['아싸', '축하해', '와', '우와'],
+  },
+  {
+    a: '친구: 우리 팀이 축구 경기에서 이겼어!',
+    av: 'Bạn: Đội của mình thắng trận bóng đá rồi!',
+    b: '__, 역시 너희 팀이 젤 잘해!',
+    bv: '__, quả nhiên đội bạn là giỏi nhất!',
+    ans: ['나이스', '최고', '우와', '와'],
+  },
+  {
+    a: '친구: 생일 선물로 갖고 싶던 게임기 받았어!',
+    av: 'Bạn: Mình nhận được máy chơi game hằng mong ước làm quà sinh nhật!',
+    b: '__, 진짜 부럽다! 축하해!',
+    bv: '__, ghen tị quá đi! Chúc mừng nhé!',
+    ans: ['우와', '대박', '와', '최고'],
+  },
+];
+
+export const storyData = {
+  ko: {
+    story:
+      '당신은 한국어 공부를 열심히 했습니다.<br>대학교에서 새로운 한국 친구를 만났어요.<br>친구가 기분이 좋아 보이네요!<br>긍정적인 반응으로 공감해 줍시다.',
+    start: '친구에게 다가가기',
+    correct: '정답입니다! 잘했어요.',
+    wrong: '틀렸습니다! 다시 풀어보세요.',
+    gameOverTitle: '게임 오버',
+    gameOverDesc: '친구와 사이가 서먹서먹해졌습니다... 😢',
+    restart: '다시 도전하기',
+  },
+  vn: {
+    story:
+      'Bạn đã chăm chỉ học tiếng Hàn.<br>Bạn gặp một người bạn Hàn Quốc mới tại trường đại học.<br>Bạn của bạn trông có vẻ đang rất vui!<br>Hãy đồng cảm bằng những phản ứng tích cực nhé.',
+    start: 'Đến gần bạn của bạn',
+    correct: 'Chính xác! Làm tốt lắm.',
+    wrong: 'Sai rồi! Hãy thử lại nhé.',
+    gameOverTitle: 'Trò chơi kết thúc',
+    gameOverDesc: 'Mối quan hệ với bạn bè đã trở nên ngại ngùng... 😢',
+    restart: 'Thử lại lần nữa',
+  },
 };
 
-export const positivePool = [
-  '대박!',
-  '와!',
-  '올~',
-  '아싸!',
-  '축하해!',
-  '나이스!',
-  '예쁘다!',
-  '역시!',
-  '최고!',
-  '진짜?',
-];
-export const negativePool = [
-  '아이씨',
-  '헐..',
-  '에이~',
-  '휴..',
-  '하아..',
-  '에구구',
-  '어라?',
-  '망했다!',
-  '아차!',
-  '쳇!',
-  '아이고~',
+export const fillerPool = [
+  '에이',
+  '설마',
+  '하아',
+  '망했다',
+  '젠장',
+  '휴',
+  '뭐야',
+  '아니',
+  '무슨',
+  '뭘?',
+  '어쩌라고?',
 ];
