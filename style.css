@@ -1,244 +1,209 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
 :root {
-  --primary: #6ab04c;
-  --secondary: #f9fdf2;
-  --text: #2d3436;
-  --gray: #636e72;
-  --danger: #eb4d4b;
+  --primary: #ff6b6b;
+  --secondary: #ffa502;
+  --correct: #2ed573;
+  --wrong: #ff4757;
   --white: #ffffff;
 }
 
-/* 레벨 2 파란색 테마 */
-.level-2-theme {
-  --primary: #3498db;
-  --secondary: #f2f7fb;
-}
-
 body {
-  font-family: 'Lexend', sans-serif;
-  background-color: #f0f2f1;
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffeaa7 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
 }
 
 #game-container {
+  width: 100%;
+  max-width: 420px;
+  height: 88vh;
   background: var(--white);
-  width: 380px;
-  height: 640px;
-  padding: 30px;
-  border-radius: 35px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border-radius: 45px;
+  box-shadow: 0 30px 60px rgba(255, 107, 107, 0.2);
+  display: flex;
+  flex-direction: column;
   position: relative;
-  text-align: center;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 
-/* 언어 전환 버튼 */
-.lang-switch {
+/* --- [전체 레이어 워터마크] --- */
+.global-watermark {
   position: absolute;
-  top: 25px;
-  right: 25px;
-  display: flex;
-  gap: 8px;
-  z-index: 110;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Ctext x='10' y='50' font-size='18' font-weight='bold' font-family='sans-serif' fill='%23FF6B6B' transform='rotate(-20 50 50)'%3E진담한국어%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
 }
-.lang-switch button {
-  padding: 6px 12px;
-  border: 1.5px solid #eee;
-  background: var(--white);
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.75rem;
+
+/* --- [좌측 상단 크레딧] --- */
+.credits-area {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  z-index: 1500;
+  font-size: 0.65rem;
+  color: #b2bec3;
+  line-height: 1.4;
   font-weight: 600;
-  font-family: 'Lexend', sans-serif;
-}
-.lang-switch button.active {
-  background: var(--primary);
-  color: var(--white);
-  border-color: var(--primary);
 }
 
-/* 모달(안내창) */
-#rules-modal {
+/* --- [모달 공통 디자인] --- */
+.modal-screen {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  z-index: 1000;
   background: var(--white);
-  z-index: 100;
-  padding: 50px 30px 30px 30px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-}
-.story-header {
-  font-size: 2rem;
-  margin-bottom: 5px;
-}
-h2 {
-  color: var(--primary);
-  margin: 10px 0;
-  font-size: 1.5rem;
-}
-.intro-p {
-  font-size: 0.95rem;
-  color: var(--gray);
-  margin: 0;
-  line-height: 1.5;
-}
-.highlight-box {
-  background: var(--secondary);
-  padding: 18px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  color: #2d3436;
-  line-height: 1.7;
-  text-align: left;
-  border-left: 6px solid var(--primary);
-}
-.rule-list {
-  text-align: left;
-  list-style: none;
-  padding: 0;
-  font-size: 0.85rem;
-  color: var(--gray);
-  line-height: 1.8;
-}
-
-/* 헤더 및 타이머 */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.status-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.level-badge {
-  background: var(--primary);
-  color: var(--white);
-  padding: 5px 12px;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-#lives-display {
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-  color: var(--danger);
-}
-
-#timer-wrapper {
-  width: 100%;
-  height: 10px;
-  background: #f0f0f0;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-#timer-bar {
-  width: 100%;
-  height: 100%;
-  background: var(--primary);
-  border-radius: 10px;
-  transition: width 0.1s linear;
-}
-
-/* 대화 영역 */
-.display-area {
-  min-height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 20px;
-}
-#situation-display {
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-#translation-display {
-  font-size: 1rem;
-  color: var(--gray);
-  font-style: italic;
-  line-height: 1.6;
-  font-weight: 300;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
 }
 
-/* 버튼 그리드 */
-.btn-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.result-mode {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 10px;
+#game-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin: 30px 0;
 }
 
-.reaction-btn {
-  padding: 18px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: 2.5px solid #f1f2f6;
-  border-radius: 20px;
-  background: var(--white);
+/* --- [언어 스위치 디자인 복구] --- */
+.lang-switch-box {
+  display: flex;
+  background: #fff0f0;
+  border-radius: 50px;
+  padding: 5px;
+  margin-bottom: 25px;
+}
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 10px 30px;
+  border-radius: 40px;
   cursor: pointer;
-  transition: 0.2s;
-  font-family: 'Lexend', sans-serif;
+  font-weight: 800;
+  color: #fab1a0;
+  transition: 0.3s;
+  font-size: 1rem;
 }
-.reaction-btn:hover {
-  background: var(--secondary);
-  border-color: var(--primary);
-  transform: translateY(-2px);
+.lang-btn.active {
+  background: var(--white);
+  color: var(--primary);
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.2);
+}
+
+.info-box {
+  background: #fff9f9;
+  border: 2px solid #ffecec;
+  border-radius: 30px;
+  padding: 30px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- [게임 UI] --- */
+header {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 10;
+}
+.timer-section {
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: var(--wrong);
+  font-size: 1.1rem;
+}
+
+#lives-display {
+  padding: 0 25px;
+  font-size: 1.4rem;
+  letter-spacing: 5px;
+  position: relative;
+  z-index: 10;
+}
+
+.speech-bubble {
+  padding: 20px;
+  border-radius: 22px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+.speech-bubble.a {
+  background: #fff0f0;
+  align-self: flex-start;
+  width: 85%;
+}
+.speech-bubble.b {
+  border: 3px solid var(--primary);
+  background: #fffbfb;
+  align-self: flex-end;
+  width: 85%;
+}
+
+#feedback-msg {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-weight: 800;
+  z-index: 3000;
+  display: none;
+}
+#feedback-msg.correct {
+  background: var(--correct);
+  display: block;
+}
+#feedback-msg.wrong {
+  background: var(--wrong);
+  display: block;
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    transform: translate(-55%, -50%);
+  }
+  75% {
+    transform: translate(-45%, -50%);
+  }
 }
 
 .main-btn {
-  width: 100%;
-  padding: 18px;
-  background: var(--primary);
-  border: none;
-  border-radius: 20px;
-  color: var(--white);
-  font-weight: 700;
-  font-size: 1.1rem;
   cursor: pointer;
-  font-family: 'Lexend', sans-serif;
+  border: none;
+  font-weight: 800;
+  border-radius: 20px;
+  transition: 0.2s;
+  color: white;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
 }
-.restart-btn {
-  max-width: 280px;
-  background-color: var(--gray);
-}
-.next-btn {
-  max-width: 280px;
-  background-color: #3498db;
+.main-btn:hover {
+  transform: scale(1.02);
 }
 
-#feedback {
-  height: 30px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-top: 15px;
-}
 .hidden {
   display: none !important;
 }
